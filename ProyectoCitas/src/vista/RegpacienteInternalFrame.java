@@ -14,8 +14,12 @@ public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form RegpacienteInternalFrame
      */
+    private controlador.PacienteControlador pacienteControlador;
     public RegpacienteInternalFrame() {
         initComponents();
+        pacienteControlador = new controlador.PacienteControlador(this);
+        Registrar.addActionListener(pacienteControlador);
+        Nuevo.addActionListener(pacienteControlador);
     }
 
     /**
@@ -32,14 +36,14 @@ public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        MasculinoRegistro = new javax.swing.JRadioButton();
-        FemeninoRegistro = new javax.swing.JRadioButton();
-        IdentificacionRegistro = new javax.swing.JTextField();
-        NombreRegistro = new javax.swing.JTextField();
-        ApellidoRegistro = new javax.swing.JTextField();
-        NuevoRegistro = new javax.swing.JButton();
-        RegistrarRegistro = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        Masculino = new javax.swing.JRadioButton();
+        Femenino = new javax.swing.JRadioButton();
+        Identificacion = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
+        Apellido = new javax.swing.JTextField();
+        Nuevo = new javax.swing.JButton();
+        Registrar = new javax.swing.JButton();
+        Fecha = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
         setMaximizable(true);
@@ -56,24 +60,24 @@ public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Genero");
 
-        MasculinoRegistro.setText("Masculino");
-        MasculinoRegistro.addActionListener(new java.awt.event.ActionListener() {
+        Masculino.setText("Masculino");
+        Masculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MasculinoRegistroActionPerformed(evt);
+                MasculinoActionPerformed(evt);
             }
         });
 
-        FemeninoRegistro.setText("Femenino");
+        Femenino.setText("Femenino");
 
-        IdentificacionRegistro.setText("jTextField1");
+        Identificacion.setText("jTextField1");
 
-        NombreRegistro.setText("jTextField2");
+        Nombre.setText("jTextField2");
 
-        ApellidoRegistro.setText("jTextField3");
+        Apellido.setText("jTextField3");
 
-        NuevoRegistro.setText("Nuevo");
+        Nuevo.setText("Nuevo");
 
-        RegistrarRegistro.setText("Registrar");
+        Registrar.setText("Registrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,9 +89,9 @@ public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(MasculinoRegistro)
+                        .addComponent(Masculino)
                         .addGap(46, 46, 46)
-                        .addComponent(FemeninoRegistro))
+                        .addComponent(Femenino))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -96,16 +100,16 @@ public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(IdentificacionRegistro)
-                            .addComponent(NombreRegistro)
-                            .addComponent(ApellidoRegistro)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Identificacion)
+                            .addComponent(Nombre)
+                            .addComponent(Apellido)
+                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(114, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RegistrarRegistro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(NuevoRegistro)
+                .addComponent(Registrar)
+                .addGap(42, 42, 42)
+                .addComponent(Nuevo)
                 .addGap(101, 101, 101))
         );
         layout.setVerticalGroup(
@@ -114,48 +118,48 @@ public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(IdentificacionRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(NombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ApellidoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(MasculinoRegistro)
-                    .addComponent(FemeninoRegistro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(Masculino)
+                    .addComponent(Femenino))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NuevoRegistro)
-                    .addComponent(RegistrarRegistro))
-                .addContainerGap())
+                    .addComponent(Registrar)
+                    .addComponent(Nuevo))
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MasculinoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasculinoRegistroActionPerformed
+    private void MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasculinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MasculinoRegistroActionPerformed
+    }//GEN-LAST:event_MasculinoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ApellidoRegistro;
-    private javax.swing.JRadioButton FemeninoRegistro;
-    private javax.swing.JTextField IdentificacionRegistro;
-    private javax.swing.JRadioButton MasculinoRegistro;
-    private javax.swing.JTextField NombreRegistro;
-    private javax.swing.JButton NuevoRegistro;
-    private javax.swing.JButton RegistrarRegistro;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public javax.swing.JTextField Apellido;
+    public com.toedter.calendar.JDateChooser Fecha;
+    public javax.swing.JRadioButton Femenino;
+    public javax.swing.JTextField Identificacion;
+    public javax.swing.JRadioButton Masculino;
+    public javax.swing.JTextField Nombre;
+    public javax.swing.JButton Nuevo;
+    public javax.swing.JButton Registrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

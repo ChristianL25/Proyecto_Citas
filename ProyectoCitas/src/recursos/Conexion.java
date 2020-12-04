@@ -18,7 +18,7 @@ public class Conexion {
     Connection con;
     public Connection getConection(){
     try {
-    Class.forName("com.mysql.jdbc.driver");
+    Class.forName("com.mysql.jdbc.Driver");
     con=DriverManager.getConnection(url,user,pass);
     JOptionPane.showMessageDialog(null,"Conexion a la base de datos");
     }
